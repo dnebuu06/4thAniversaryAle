@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 4th Anniversary</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffe4e1, #fadadd);
+            overflow: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://static.vecteezy.com/system/resources/previews/000/231/388/original/heart-background-vector.jpg') center/contain no-repeat;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #ff6f91;
+            margin-bottom: 1rem;
+        }
+        button {
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e55d7a;
+        }
+        .hidden {
+            display: none;
+        }
+        .buttons {
+            margin-top: 2rem;
+        }
+        .buttons button {
+            margin: 0 1rem;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .memories {
+            text-align: center;
+            padding: 20px;
+            max-height: 80vh; /* Limiting max height for the section */
+            overflow-y: auto; /* Enabling the scroll */
+        }
+        .memories .images, .memories .songs, .memories .moments {
+            margin-bottom: 2rem;
+        }
+        .images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .images p {
+            font-size: 1rem;
+            color: #333;
+        }
+        .songs iframe {
+            margin-top: 10px;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+        }
+        .moments ul {
+            list-style: none;
+            padding: 0;
+        }
+        .moments li {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-container">
+        <h1>Happy 4th Anniversary, my love! 💖</h1>
+        <button id="reveal-button">Discover our story</button>
+        <div class="buttons hidden" id="section-buttons">
+            <button id="letter-button">A Letter for You</button>
+            <button id="memories-button">Our Memories</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="pin-container">
+        <div class="pin-display" id="pin-display">••••••••</div>
+        <div class="pin-input" id="pin-input"></div>
+        <p>Clue: Our anniversary &lt;3</p>
+        <button id="back-to-main">Back</button>
+    </div>
+
+    <div class="hidden" id="card-container">
+        <div class="card">[Here you can place your message]</div>
+        <button id="back-to-main-from-card">Back</button>
+    </div>
+
+    <div class="section hidden" id="memories-section">
+        <div class="memories">
+            <h1>Our Memories</h1>
+            <div class="images">
+                <h2>Images and Descriptions</h2>
+                <img src="images/aledoctor.jpg" alt="Memory 1">
+                <p>Description of memory 1.</p>
+                <img src="https://via.placeholder.com/300" alt="Memory 2">
+                <p>Description of memory 2.</p>
+            </div>
+            <div class="songs">
+                <h2>Songs that remind me of you</h2>
+                <div class="video">
+                    <!-- Image that redirects to YouTube video -->
+                    <a href="https://www.youtube.com/watch?v=TuSvrKDX1FI" target="_blank">
+                        <img src="https://akamai.sscdn.co/uploadfile/letras/albuns/d/4/3/1/1727971680111814.jpg" alt="YouTube Video" style="max-width: 25%; border-radius: 10px;">
+                        <label style="display: block; text-align: center; margin-top: 8px; color: #555;">Fragile - Tatsuro Yamashita</label>
+                    </a>
+                </div>
+
+                <div class="video">
+                    <!-- Image that redirects to YouTube video -->
+                    <a href="https://www.youtube.com/watch?v=RyZNIw_IHpo" target="_blank">
+                        <img src="https://akamai.sscdn.co/uploadfile/letras/albuns/c/8/f/4/672061541529985.jpg" alt="YouTube Video" style="max-width: 25%; border-radius: 10px;">
+                        <label style="display: block; text-align: center; margin-top: 8px; color: #555;">Cariño - The Marias</label>
+                    </a>
+                </div>
+
+                <div class="video">
+                    <!-- Image that redirects to YouTube video -->
+                    <a href="https://www.youtube.com/watch?v=j_sG_Juncn8" target="_blank">
+                        <img src="https://ih1.redbubble.net/image.3153021003.3372/raf,360x360,075,t,fafafa:ca443f4786.jpg" alt="YouTube Video" style="max-width: 25%; border-radius: 10px;">
+                        <label style="display: block; text-align: center; margin-top: 8px; color: #555;">Lovers Rock - TV Girl</label>
+                    </a>
+                </div>
+
+            </div>                      
+            <div class="moments">
+                <h2>Important Moments</h2>
+                <ul>
+                    <li>The day we met.</li>
+                    <li>Our first date.</li>
+                    <li>The day we celebrated our first anniversary.</li>
+                </ul>
+            </div>
+            <button id="back-to-main-from-memories">Back</button>
+        </div>
+    </div>
+
+    <script>
+        const revealButton = document.getElementById('reveal-button');
+        const sectionButtons = document.getElementById('section-buttons');
+        const letterButton = document.getElementById('letter-button');
+        const pinContainer = document.getElementById('pin-container');
+        const pinInput = document.getElementById('pin-input');
+        const pinDisplay = document.getElementById('pin-display');
+        const cardContainer = document.getElementById('card-container');
+        const backToMain = document.getElementById('back-to-main');
+        const backToMainFromCard = document.getElementById('back-to-main-from-card');
+        const memoriesButton = document.getElementById('memories-button');
+        const memoriesSection = document.getElementById('memories-section');
+        const backToMainFromMemories = document.getElementById('back-to-main-from-memories');
+
+        const correctPin = '18022021';
+        let enteredPin = '';
+
+        revealButton.addEventListener('click', () => {
+            revealButton.classList.add('hidden');
+            showFireworks();
+        });
+
+        letterButton.addEventListener('click', () => {
+            sectionButtons.classList.add('hidden');
+            pinContainer.classList.remove('hidden');
+            setupPinInput();
+        });
+
+        backToMain.addEventListener('click', () => {
+            pinContainer.classList.add('hidden');
+            sectionButtons.classList.remove('hidden');
+            enteredPin = '';
+            updatePinDisplay();
+        });
+
+        backToMainFromCard.addEventListener('click', () => {
+            cardContainer.classList.add('hidden');
+            sectionButtons.classList.remove('hidden');
+        });
+
+        memoriesButton.addEventListener('click', () => {
+            sectionButtons.classList.add('hidden');
+            memoriesSection.classList.add('active');
+        });
+
+        backToMainFromMemories.addEventListener('click', () => {
+            memoriesSection.classList.remove('active');
+            sectionButtons.classList.remove('hidden');
+        });
+
+        function setupPinInput() {
+            pinInput.innerHTML = '';
+            for (let i = 0; i < 10; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.addEventListener('click', () => {
+                    if (enteredPin.length < 8) {
+                        enteredPin += i;
+                        updatePinDisplay();
+                        if (enteredPin === correctPin) {
+                            pinContainer.classList.add('hidden');
+                            cardContainer.classList.remove('hidden');
+                        }
+                    }
+                });
+                pinInput.appendChild(btn);
+            }
+        }
+
+        function updatePinDisplay() {
+            pinDisplay.textContent = enteredPin.padEnd(8, '•');
+        }
+
+        // Fireworks Animation
+        const createFirework = (x, y) => {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+            document.body.appendChild(firework);
+
+            setTimeout(() => {
+                firework.remove();
+            }, 2000);
+        };
+
+        const showFireworks = () => {
+            const interval = setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createFirework(x, y);
+            }, 300);
+
+            setTimeout(() => {
+                clearInterval(interval);
+                sectionButtons.classList.remove('hidden');
+            }, 5000); // Show buttons after 5 seconds
+        };
+    </script>
+
+    <style>
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 0, 150, 1) 50%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            animation: explode 1.5s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>
